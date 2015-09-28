@@ -2,7 +2,6 @@ package com.wyf.lengends.app;
 
 import java.util.ArrayList;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,10 +13,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.wyf.lengends.R;
+import com.wyf.lengends.app.base.BaseActivity;
 import com.wyf.lengends.app.swipelistview.SwipeListViewActivity;
 import com.wyf.lengends.app.swipelistview.SwipeListViewMenuActivity;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseActivity {
 	
 	private ListView listview;
 	private ListViewAdapter adapter;

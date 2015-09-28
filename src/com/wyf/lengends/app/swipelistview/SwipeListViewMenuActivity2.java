@@ -25,7 +25,6 @@ package com.wyf.lengends.app.swipelistview;
 
 import java.util.List;
 
-import android.app.Activity;
 import android.content.pm.ApplicationInfo;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -38,6 +37,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wyf.lengends.R;
+import com.wyf.lengends.app.base.BaseActivity;
 import com.wyf.lengends.widget.swipemenulistview.SwipeMenu;
 import com.wyf.lengends.widget.swipemenulistview.SwipeMenuCreator;
 import com.wyf.lengends.widget.swipemenulistview.SwipeMenuItem;
@@ -47,7 +47,7 @@ import com.wyf.lengends.widget.swipemenulistview.SwipeMenuListView;
  * SwipeMenuListView
  * Created by baoyz on 15/6/29.
  */
-public class SwipeListViewMenuActivity2  extends Activity {
+public class SwipeListViewMenuActivity2  extends BaseActivity {
 
     private List<ApplicationInfo> mAppList;
     private AppAdapter mAdapter;

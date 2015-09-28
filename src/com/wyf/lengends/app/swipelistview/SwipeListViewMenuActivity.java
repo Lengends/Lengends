@@ -23,18 +23,18 @@
  */
 package com.wyf.lengends.app.swipelistview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import com.wyf.lengends.R;
+import com.wyf.lengends.app.base.BaseActivity;
 
 /**
  * SwipeMenuListView
  * Created by baoyz on 15/6/29.
  */
-public class SwipeListViewMenuActivity extends Activity {
+public class SwipeListViewMenuActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

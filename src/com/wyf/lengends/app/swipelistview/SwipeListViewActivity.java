@@ -1,6 +1,5 @@
 package com.wyf.lengends.app.swipelistview;
 
-import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -16,9 +15,10 @@ import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.wyf.lengends.R;
+import com.wyf.lengends.app.base.BaseActivity;
 import com.wyf.lengends.widget.swipelistview.SwipeListView;
 
-public class SwipeListViewActivity extends Activity{
+public class SwipeListViewActivity extends BaseActivity{
 	
 	 private String[] contentItems = {
 	            "Content Item 1", "Content Item 2", "Content Item 3",
