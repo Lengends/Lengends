@@ -16,6 +16,7 @@ import com.wyf.lengends.R;
 import com.wyf.lengends.app.base.BaseActivity;
 import com.wyf.lengends.app.swipelistview.SwipeListViewActivity;
 import com.wyf.lengends.app.swipelistview.SwipeListViewMenuActivity;
+import com.wyf.lengends.app.swiperefreshview.RefreshViewActivity;
 
 public class MainActivity extends BaseActivity {
 	
@@ -61,6 +62,20 @@ public class MainActivity extends BaseActivity {
 			}
 		};
 		list.add(swipelist_menu);
+		
+		
+		MaintItem mRefreshViewActivity = new MaintItem();
+		mRefreshViewActivity.title = "RefreshViewActivity";
+		mRefreshViewActivity.desc = "下拉刷新";
+		mRefreshViewActivity.listener = new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(MainActivity.this, RefreshViewActivity.class);
+				startActivity(intent);
+			}
+		};
+		list.add(mRefreshViewActivity);
 		
 		
 		

@@ -38,6 +38,10 @@
             android:name="com.wyf.lengends.app.swipelistview.SwipeListViewMenuActivity2"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar" />
+        <activity
+            android:name="com.wyf.lengends.app.swiperefreshview.RefreshViewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar" />
     <!-- <receiver android:name="com.bugtags.library.BugtagsReceiver" >
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
