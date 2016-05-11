@@ -1,1 +1,1 @@
-![Lengends](author.jpg)
+![Lengends](author.png)
