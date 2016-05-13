@@ -1,1 +1,1 @@
-include ':app', ':photoviewdemo', ':baseproject'
+include ':app', ':photoviewdemo', ':baseproject', ':recyclerviewheadzoom'

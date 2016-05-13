@@ -6,8 +6,8 @@
 
 
 
-# 1、photoviewdemo
-点击进入：[PhotoView开源项目](https://github.com/bm-x/PhotoView)
+# 1、photoviewdemo 
+PhotoView 图片浏览缩放控件,点击进入：[PhotoView开源项目](https://github.com/bm-x/PhotoView)
 
 # 效果图
 ![PhotoView](photoviewdemo/photoview.gif)
@@ -59,3 +59,27 @@ dependencies {
         // 设置动画的插入器
         photoView.setInterpolator(Interpolator interpolator);
 ```
+
+
+
+# 手机无线连接Android Studio
+[原文连接](http://blog.csdn.net/kv110/article/details/39438853)
+
+1、查看手机IP : 192.168.x.x
+2、PC端 ping 192.168.x.x 看能否ping的通
+3、在PC端输入下面命令
+    adb tcpip 5555
+    adb connect 192.168.*.* (手机ip地址）
+    (如果还连着USB, 输入其他命令时先输入adb devices， 输入adb -s device_name 命令)
+    用下面的命令切回到usb方式
+    adb usb
+4、如果没有USB线，
+    可以用手机端terminal工具输入，需要root权限
+    su 
+    setprop service.adb.tcp.port 5555  
+    stop adbd   
+    start adbd   
+    在PC端，输入ping 手机的ip 地址，看看是否成功. 然后输入命令
+    adb connect 192.168.x.x  (手机ip地址）
+    断开 adb disconnect 192.168.x.x 
+
