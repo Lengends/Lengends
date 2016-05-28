@@ -64,10 +64,10 @@ dependencies {
 # Custom-Coordinator-Behavior :自定义CoordinatorLayout Behavior
 
 #依赖关系图
-![Lengends](Custom-Coordinator-Behavior/coordinatorlayout.png)
+![Lengends](CoordinatorlayoutBehavior/coordinatorlayout.png)
 
 #效果图
-![Lengends](Custom-Coordinator-Behavior/coordinatorlayout.gif)
+![Lengends](CoordinatorlayoutBehavior/coordinatorlayout.gif)
 
 
 
