@@ -8,11 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import com.org.lengend.adapter.MainAdapter;
 import com.org.lengend.base.BaseActivity;
 import com.org.lengend.base.OnRecyclerViewClickItemListener;
+import com.org.lengend.coordinatorlayout.CoordinatorActivity;
 import com.org.lengend.entity.MainDataEntity;
 import com.org.lengend.photoview.PhotoActivity;
 import com.org.lengend.recyclerhead.ZoomHeadViewActivity;
 
 import java.util.ArrayList;
+
+//import com.org.lengend.coordinatorlayout.CoordinatorActivity;
 
 public class MainActivity extends BaseActivity implements OnRecyclerViewClickItemListener{
 
@@ -22,13 +25,14 @@ public class MainActivity extends BaseActivity implements OnRecyclerViewClickIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_activity);
         initView();
     }
 
     @Override
     protected void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+        System.out.println("=====recyclerView======"+recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(MainActivity.this);
         recyclerView.setLayoutManager(layoutManager);
@@ -61,6 +65,16 @@ public class MainActivity extends BaseActivity implements OnRecyclerViewClickIte
         headView.setDesc("HeadView放大缩小");
         headView.setGoClass(ZoomHeadViewActivity.class);
         data.add(headView);
+
+
+        MainDataEntity coordinator = new MainDataEntity();
+        coordinator.setTitle("CoordinatorActivity");
+        coordinator.setDesc("CoordinatorActivity");
+        coordinator.setGoClass(CoordinatorActivity.class);
+        data.add(coordinator);
+
+
+
         return data;
     }
 }
