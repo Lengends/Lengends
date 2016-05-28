@@ -1,1 +1,1 @@
-include ':app', ':photoviewdemo', ':baseproject', ':recyclerviewheadzoom'
+include ':app', ':photoviewdemo', ':baseproject', ':recyclerviewheadzoom','Custom-Coordinator-Behavior'
