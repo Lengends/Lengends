@@ -9,6 +9,8 @@ import com.org.lengend.adapter.MainAdapter;
 import com.org.lengend.base.BaseActivity;
 import com.org.lengend.base.OnRecyclerViewClickItemListener;
 import com.org.lengend.coordinatorlayout.CoordinatorActivity;
+import com.org.lengend.coordinatorlayout.DemoActivity;
+import com.org.lengend.coordinatorlayout.ProfileActivity;
 import com.org.lengend.entity.MainDataEntity;
 import com.org.lengend.photoview.PhotoActivity;
 import com.org.lengend.recyclerhead.ZoomHeadViewActivity;
@@ -72,6 +74,20 @@ public class MainActivity extends BaseActivity implements OnRecyclerViewClickIte
         coordinator.setDesc("CoordinatorActivity");
         coordinator.setGoClass(CoordinatorActivity.class);
         data.add(coordinator);
+
+
+        MainDataEntity profileActivity = new MainDataEntity();
+        profileActivity.setTitle("ProfileActivity");
+        profileActivity.setDesc("ProfileActivity");
+        profileActivity.setGoClass(ProfileActivity.class);
+        data.add(profileActivity);
+
+
+        MainDataEntity demoActivity = new MainDataEntity();
+        demoActivity.setTitle("DemoActivity");
+        demoActivity.setDesc("DemoActivity");
+        demoActivity.setGoClass(DemoActivity.class);
+        data.add(demoActivity);
 
 
 

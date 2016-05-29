@@ -69,6 +69,12 @@ dependencies {
 #效果图
 ![Lengends](CoordinatorlayoutBehavior/coordinatorlayout.gif)
 
+DemoActivity
+![Lengends](CoordinatorlayoutBehavior/demoactivity.gif)
+
+ProfileActivity
+![Lengends](CoordinatorlayoutBehavior/profileactivity.gif)
+
 
 
 # 手机无线连接Android Studio

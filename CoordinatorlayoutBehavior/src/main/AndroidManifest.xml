@@ -8,6 +8,16 @@
         <activity
             android:name="com.org.lengend.coordinatorlayout.CoordinatorActivity"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="com.org.lengend.coordinatorlayout.DemoActivity"
+            android:theme="@style/AppTheme" />
+
+        <activity
+            android:name="com.org.lengend.coordinatorlayout.ProfileActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
     </application>
 
 
