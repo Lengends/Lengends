@@ -18,7 +18,7 @@
             android:layout_height="wrap_content"
             android:text="New Text"
             android:textColor="@color/color_333333"
-            android:textSize="@dimen/testSize18" />
+            android:textSize="@dimen/textSize18" />
 
         <TextView
             android:id="@+id/desc"
@@ -27,7 +27,7 @@
             android:layout_marginTop="@dimen/padding"
             android:text="New Text"
             android:textColor="@color/color_666666"
-            android:textSize="@dimen/testSize15" />
+            android:textSize="@dimen/textSize15" />
     </LinearLayout>
     <View
         android:layout_width="match_parent"

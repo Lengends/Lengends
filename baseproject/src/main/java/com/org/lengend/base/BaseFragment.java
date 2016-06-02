@@ -1,7 +1,8 @@
 package com.org.lengend.base;
 
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,12 @@ public abstract class BaseFragment extends Fragment {
 
     protected View findViewById(int resId){
         return rootView.findViewById(resId);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        initView();
     }
 
     /**

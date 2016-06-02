@@ -15,7 +15,7 @@
 
         <activity
             android:name="com.org.lengend.coordinatorlayout.ProfileActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
 
 
     </application>

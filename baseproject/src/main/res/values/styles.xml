@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="textSize_title" >
+        <item name="android:textSize">@dimen/textSize20</item>
+        <item name="android:textColor">@color/color_333333</item>
+    </style>
+    <style name="textSize_desc" >
+        <item name="android:textSize">@dimen/textSize18</item>
+        <item name="android:textColor">@color/color_666666</item>
+    </style>
+
+
+</resources>
