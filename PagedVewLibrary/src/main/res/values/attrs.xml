@@ -1,0 +1,18 @@
+<resources>
+
+
+    <declare-styleable name="PagedView">
+        <attr name="pageSpacing" format="dimension" />
+        <attr name="pageLayoutPaddingLeft" format="dimension" />
+        <attr name="pageLayoutPaddingTop" format="dimension" />
+        <attr name="pageLayoutPaddingRight" format="dimension" />
+        <attr name="pageLayoutPaddingBottom" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ScaleImageView">
+        <attr name="scaleWidth" format="integer" />
+        <attr name="scaleHight" format="integer" />
+    </declare-styleable>
+
+
+</resources>
