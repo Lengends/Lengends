@@ -67,13 +67,107 @@ dependencies {
 ![Lengends](CoordinatorlayoutBehavior/coordinatorlayout.png)
 
 #效果图
+
 ![Lengends](CoordinatorlayoutBehavior/coordinatorlayout.gif)
 
-DemoActivity
+# DemoActivity
+
 ![Lengends](CoordinatorlayoutBehavior/demoactivity.gif)
 
-ProfileActivity
+# ProfileActivity
+
 ![Lengends](CoordinatorlayoutBehavior/profileactivity.gif)
+
+# 无限循环的广告Banner图实现,真正做到的无限循环
+
+#效果图
+![PagedVewLibrary](PagedVewLibrary/pagedview.gif)
+1、代码实现
+a、xml定义：
+```java
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.org.lengend.pagedview.PagedView
+            android:id="@+id/cyclePagedView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <com.org.lengend.pagedview.PageIndicatorView
+            android:id="@+id/pageIndicatorView"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignBottom="@+id/cyclePagedView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+    </RelativeLayout>
+```
+b、activity实现：
+```java
+List<String> urls = new ArrayList<String>();
+urls.add("http://img4.imgtn.bdimg.com/it/u=1238985129,963468829&fm=21&gp=0.jpg");
+urls.add("http://img3.imgtn.bdimg.com/it/u=4258063781,3013778552&fm=21&gp=0.jpg");
+urls.add("http://img0.imgtn.bdimg.com/it/u=2231837044,3643597260&fm=21&gp=0.jpg");
+urls.add("http://pic0.mofang.com/2014/1113/20141113110312116.jpg");
+PagedView cyclePagedView = (PagedView) findViewById(R.id.cyclePagedView);
+MyPagedViewAdapter adapter = new MyPagedViewAdapter(this);
+adapter.setImageUrls(urls);
+PageIndicatorView pageIndicatorView = (PageIndicatorView) findViewById(R.id.pageIndicatorView);
+cyclePagedView.setPageIndicator(pageIndicatorView);
+//是否自动轮播
+cyclePagedView.setAutoPage(true);
+//设置自动轮播时间间隔
+cyclePagedView.setStepPageTime(3000);
+cyclePagedView.setAdapter(adapter);
+//设置当前显示的索引，从0开始
+cyclePagedView.setCurrentIndex(5);
+```
+c、adapter实现：
+```java
+public class MyPagedViewAdapter extends PagedViewAdapter<MyPagedViewAdapter.PagedViewHolder> {
+
+    private Context context;
+    List<String> imageUrls;
+    public MyPagedViewAdapter(Context context){
+        this.context = context;
+    }
+
+    public void setImageUrls(List<String> imageUrls) {
+        this.imageUrls = imageUrls;
+    }
+
+    @Override
+    public int getCount() {
+        return imageUrls == null ? 0 : imageUrls.size();
+    }
+
+    @Override
+    public PagedViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View itemView = View.inflate(context, R.layout.image_view, null);
+        PagedViewHolder holder = new PagedViewHolder(itemView);
+        return holder;
+    }
+
+    @Override
+    public void onBindViewHolder(PagedViewHolder holder, int position) {
+        String url = imageUrls.get(position);
+        Picasso.with(context).load(url).into(holder.imageView);
+    }
+
+
+
+    static class PagedViewHolder extends RecyclerView.ViewHolder{
+
+        private ImageView imageView;
+        public PagedViewHolder(View itemView) {
+            super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.imageView);
+        }
+    }
+}
+```
+
 
 
 
