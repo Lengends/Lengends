@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="app_bg">#3C3F41</color>
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="color_white">#FFFFFF</color>
+    <color name="text_color">#A8B6C5</color>
     <color name="color_eaeaea">#EAEAEA</color>
     <color name="color_f8f8f8">#F8F8F8</color>
     <color name="color_333333">#333333</color>
     <color name="color_666666">#666666</color>
     <color name="color_999999">#999999</color>
+    <color name="color_3C3F41">#3C3F41</color>
+    <color name="color_515658">#515658</color>
 </resources>

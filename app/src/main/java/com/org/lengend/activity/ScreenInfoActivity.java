@@ -23,7 +23,8 @@ public class ScreenInfoActivity extends BaseActivity{
         StringBuilder sb = new StringBuilder();
         sb.append("屏幕宽：").append(screenW_H.right).append("\n");
         sb.append("屏幕高：").append(screenW_H.bottom).append("\n");
-        sb.append("density：").append(SystemPhoneUtil.getPhoneDensity(this));
+        sb.append("density：").append(SystemPhoneUtil.getPhoneDensity(this)).append("\n");
+        sb.append("densityDpi：").append(SystemPhoneUtil.getPhoneDensityDpi(this));
 
         screenInfoText.setText(sb.toString());
 

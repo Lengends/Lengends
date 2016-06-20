@@ -1,1 +1,1 @@
-include ':app', ':photoviewdemo', ':baseproject', ':recyclerviewheadzoom', ':CoordinatorlayoutBehavior', ':PagedVewLibrary'
+include ':app', ':photoviewdemo', ':baseproject', ':CoordinatorlayoutBehavior', ':PagedVewLibrary', ':HttpClient', ':RecycleViewDemo'

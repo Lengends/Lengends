@@ -27,7 +27,6 @@ public class PagedViewActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         urls.add("http://img4.imgtn.bdimg.com/it/u=1238985129,963468829&fm=21&gp=0.jpg");
         urls.add("http://img3.imgtn.bdimg.com/it/u=4258063781,3013778552&fm=21&gp=0.jpg");
         urls.add("http://img0.imgtn.bdimg.com/it/u=2231837044,3643597260&fm=21&gp=0.jpg");
@@ -43,6 +42,22 @@ public class PagedViewActivity extends BaseActivity {
         cyclePagedView.setStepPageTime(3000);
         cyclePagedView.setAdapter(adapter);
         //设置当前显示的索引，从0开始
-        cyclePagedView.setCurrentIndex(5);
+//        cyclePagedView.setCurrentIndex(5);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(cyclePagedView != null){
+            cyclePagedView.onResume();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        if(cyclePagedView != null){
+            cyclePagedView.onPause();
+        }
     }
 }

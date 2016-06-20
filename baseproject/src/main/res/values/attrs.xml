@@ -1,0 +1,9 @@
+<resources>
+
+    <declare-styleable name="ScaleImageView">
+        <attr name="scaleWidth" format="integer" />
+        <attr name="scaleHight" format="integer" />
+    </declare-styleable>
+
+
+</resources>

@@ -21,7 +21,6 @@ public class TabLayoutActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.tablayout);
-        initView();
     }
 
     @Override

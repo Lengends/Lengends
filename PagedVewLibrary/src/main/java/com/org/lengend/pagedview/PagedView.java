@@ -155,7 +155,8 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
     private boolean mDeferLoadAssociatedPagesUntilScrollCompletes;
 
 
-
+    private int mScaleWidth = -1;
+    private int mScaleHight = -1;
 
 
     private ArrayList<RecyclerView.ViewHolder> mChangedScrap = new ArrayList<>();
@@ -184,6 +185,10 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
                 R.styleable.PagedView_pageLayoutPaddingLeft, 0);
         mPageLayoutPaddingRight = a.getDimensionPixelSize(
                 R.styleable.PagedView_pageLayoutPaddingRight, 0);
+
+        mScaleWidth = a.getInteger(R.styleable.PagedView_pageScaleWidth, -1);
+        mScaleHight = a.getInteger(R.styleable.PagedView_pageScaleHight, -1);
+
         a.recycle();
 
         setHapticFeedbackEnabled(false);
@@ -321,16 +326,20 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
             if (getCurrentPage() != 1) {
                 setCurrentPage(1);
             } else {
+                if (mPageIndicator != null) {
+                    int count = adapter.getCount();
+                    mPageIndicator.setCount(count);
+                    int index = getViewPosition(currentIndex);
+                    mPageIndicator.setCurrentIndex(index == 0 ? 0 : index % count);
+                }
                 for (int i = 0; i < mChangedScrap.size(); i++) {
                     RecyclerView.ViewHolder holder = mChangedScrap.get(i);
-                    adapter.onBindViewHolder(holder, getViewPosition(currentIndex + i - 1));
-                }
-            }
+                    int index = getViewPosition(currentIndex + i - 1);
+                    if(adapter.getCount() > index){
+                        adapter.onBindViewHolder(holder, index);
+                    }
 
-            if (mPageIndicator != null) {
-                int count = adapter.getCount();
-                mPageIndicator.setCount(count);
-                mPageIndicator.setCurrentIndex(getViewPosition(currentIndex) % count);
+                }
             }
         }
     }
@@ -444,15 +453,25 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//        if (!mIsDataReady) {
-//            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-//            return;
-//        }
+        if (!mIsDataReady) {
+            super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+            return;
+        }
 
         final int widthMode = MeasureSpec.getMode(widthMeasureSpec);
         final int widthSize = MeasureSpec.getSize(widthMeasureSpec);
         final int heightMode = MeasureSpec.getMode(heightMeasureSpec);
+
         int heightSize = MeasureSpec.getSize(heightMeasureSpec);
+
+        if(mScaleHight != -1 && mScaleWidth != -1){
+            heightSize = widthSize * mScaleHight / mScaleWidth;
+        }
+
+
+
+
+
         if (widthMode != MeasureSpec.EXACTLY) {
             throw new IllegalStateException(
                     "Workspace can only be used in EXACTLY mode.");
@@ -1822,12 +1841,11 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
 
     public void setPageIndicator(PageIndicator mPageIndicator) {
         this.mPageIndicator = mPageIndicator;
-        if (adapter != null) {
-            if (mPageIndicator != null) {
-                int count = adapter.getCount();
-                mPageIndicator.setCount(count);
-                mPageIndicator.setCurrentIndex(getViewPosition(currentIndex) % count);
-            }
+        if (adapter != null && mPageIndicator != null) {
+            int count = adapter.getCount();
+            mPageIndicator.setCount(count);
+            int index = getViewPosition(currentIndex);
+            mPageIndicator.setCurrentIndex(index == 0 ? 0 : index % count);
         }
     }
 
@@ -1840,14 +1858,18 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
             }else{
                 currentIndex = index;
             }
-            for (int i = 0; i < mChangedScrap.size(); i++) {
-                RecyclerView.ViewHolder holder = mChangedScrap.get(i);
-                adapter.onBindViewHolder(holder, getViewPosition(currentIndex + i - 1));
-            }
             if (mPageIndicator != null) {
                 int count = adapter.getCount();
                 mPageIndicator.setCount(count);
-                mPageIndicator.setCurrentIndex(getViewPosition(currentIndex) % count);
+                int index1 = getViewPosition(currentIndex);
+                mPageIndicator.setCurrentIndex(index1 == 0 ? 0 : index1 % count);
+            }
+            for (int i = 0; i < mChangedScrap.size(); i++) {
+                RecyclerView.ViewHolder holder = mChangedScrap.get(i);
+                int index1 = getViewPosition(currentIndex + i - 1);
+                if(adapter.getCount() > index){
+                    adapter.onBindViewHolder(holder, index1);
+                }
             }
         }
 
@@ -1882,16 +1904,19 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
             if (getCurrentPage() != 1) {
                 setCurrentPage(1);
             } else {
+                if (mPageIndicator != null) {
+                    int count = adapter.getCount();
+                    mPageIndicator.setCount(count);
+                    int index = getViewPosition(currentIndex);
+                    mPageIndicator.setCurrentIndex(index == 0 ? 0 : index % count);
+                }
                 for (int i = 0; i < mChangedScrap.size(); i++) {
                     RecyclerView.ViewHolder holder = mChangedScrap.get(i);
-                    adapter.onBindViewHolder(holder, getViewPosition(currentIndex + i - 1));
+                    int index = getViewPosition(currentIndex + i - 1);
+                    if(adapter.getCount() > index){
+                        adapter.onBindViewHolder(holder, index);
+                    }
                 }
-            }
-
-            if (mPageIndicator != null) {
-                int count = adapter.getCount();
-                mPageIndicator.setCount(count);
-                mPageIndicator.setCurrentIndex(getViewPosition(currentIndex) % count);
             }
         }
     }
@@ -1937,7 +1962,6 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
      * 轮播时间间隔
      */
     private long STEP = 5000;
-    //	private volatile Timer myTimer;
     private boolean isAutoPage = false;
     Handler mainHandler;
 
@@ -1962,14 +1986,12 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
      * 开始计时
      */
     public void startTimer() {
-        if (!isAutoPage) {
-            return;
+        if (isAutoPage) {
+            stopTimer();
+            if(mainHandler != null){
+                mainHandler.postDelayed(runnable, STEP);
+            }
         }
-        stopTimer();
-        if(mainHandler != null){
-            mainHandler.postDelayed(runnable, STEP);
-        }
-
     }
 
     /**
@@ -1982,4 +2004,17 @@ public class PagedView extends ViewGroup implements ViewGroup.OnHierarchyChangeL
 
     }
     /**************************************************** 计时器 end *********************************************************/
+
+    @Override
+    protected void onDetachedFromWindow() {
+        super.onDetachedFromWindow();
+        stopTimer();
+
+    }
+
+    @Override
+    protected void onAttachedToWindow() {
+        super.onAttachedToWindow();
+        startTimer();
+    }
 }

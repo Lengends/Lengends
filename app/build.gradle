@@ -27,6 +27,7 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.3.0'
     compile project(':baseproject')
     compile project(':photoviewdemo')
-    compile project(':recyclerviewheadzoom')
     compile project(':CoordinatorlayoutBehavior')
+    compile project(':PagedVewLibrary')
+    compile project(':RecycleViewDemo')
 }

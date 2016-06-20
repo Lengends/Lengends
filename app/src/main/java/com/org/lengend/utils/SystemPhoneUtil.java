@@ -24,7 +24,7 @@ public class SystemPhoneUtil {
         return new Rect(0,0,dm.widthPixels, dm.heightPixels);
     }
 
-/**
+    /**
      * 获取屏幕的宽高
      * @param activity
      * @return
@@ -34,6 +34,18 @@ public class SystemPhoneUtil {
         DisplayMetrics dm = new DisplayMetrics();
         wm.getDefaultDisplay().getMetrics(dm);
         return dm.density;
+    }
+
+    /**
+     * 获取屏幕的宽高
+     * @param activity
+     * @return
+     */
+    public static int getPhoneDensityDpi(Activity activity){
+        WindowManager wm = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+        DisplayMetrics dm = new DisplayMetrics();
+        wm.getDefaultDisplay().getMetrics(dm);
+        return dm.densityDpi;
     }
 
 

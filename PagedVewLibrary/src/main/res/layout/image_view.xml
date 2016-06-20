@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.org.lengend.pagedview.ScaleImageView
+<com.org.lengend.base.widget.ScaleImageView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:scale="http://schemas.android.com/apk/res-auto"
     android:id="@+id/imageView"

@@ -7,11 +7,7 @@
         <attr name="pageLayoutPaddingTop" format="dimension" />
         <attr name="pageLayoutPaddingRight" format="dimension" />
         <attr name="pageLayoutPaddingBottom" format="dimension" />
-        <attr name="pageScaleWidth" format="integer" />
-        <attr name="pageScaleHight" format="integer" />
-
     </declare-styleable>
-
 
 
 </resources>

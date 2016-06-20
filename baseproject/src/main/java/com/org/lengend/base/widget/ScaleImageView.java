@@ -1,9 +1,12 @@
-package com.org.lengend.pagedview;
+package com.org.lengend.base.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.util.AttributeSet;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.org.lengend.base.R;
 
 /**
  * Created by wangyanfei on 2016/6/13.
@@ -35,6 +38,15 @@ public class ScaleImageView extends ImageView{
         this.mScaleWidth = wScale;
         this.mScaleHight = hScale;
         requestLayout();
+    }
+
+    public void setScale(int width, int wScale,int hScale){
+        this.mScaleWidth = wScale;
+        this.mScaleHight = hScale;
+        ViewGroup.LayoutParams layoutParams = getLayoutParams();
+        layoutParams.width = width;
+        layoutParams.height = width * hScale / wScale;
+        setLayoutParams(layoutParams);
     }
 
     @Override
