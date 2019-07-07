@@ -1,10 +1,3 @@
-# 作者简介
-
-![Lengends](author.png)
-昵称：Lengends; 
-QQ:419473756
-
-
 
 
 # 1、photoviewdemo 
